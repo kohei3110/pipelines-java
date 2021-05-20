@@ -13,6 +13,7 @@ https://github.com/MicrosoftDocs/pipelines-java
 5. リポジトリの一覧が表示されたら、対象となるアプリケーションのリポジトリを選択する。
 6. Azure Pipeline によってリポジトリが分析される。上記のサンプルリポジトリは、Maven パイプラインテンプレートが推奨される。<br>
    [Save and run]を選択し、適宜 Commit message を入力する。[Commit directly to the master branch]を選択し、[Save and run]を選択する。
+   パイプラインは、プロジェクトのルートに作成される `azure-pipelines.yml` にて定義する。
 
 ## Add a status badge to the repository
 1. Azure Pipelines で、[Pipeline]ページにアクセスし、パイプラインの一覧を表示する。前のセクションで作成したパイプラインを選択する。
