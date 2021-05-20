@@ -1,31 +1,20 @@
 [![Build Status](https://dev.azure.com/koheisaito/Demo/_apis/build/status/kohei3110.pipelines-java?branchName=master)](https://dev.azure.com/koheisaito/Demo/_build/latest?definitionId=1&branchName=master)
-# Contributing
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.microsoft.com.
+# Azure DevOps Tutorial
 
-When you submit a pull request, a CLA-bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
+## Fork the following repository to your GitHub account
+https://github.com/MicrosoftDocs/pipelines-java
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+## Create a new Java pipeline
+1. Azure DevOps 組織にサインインし、プロジェクトに移動する。
+2. プロジェクト内で、「パイプライン」ページに移動する。
+3. ソースコードの場所として、GitHub を選択する。
+4. サインイン画面に遷移するので、認証情報を入力する。
+5. リポジトリの一覧が表示されたら、対象となるアプリケーションのリポジトリを選択する。
+6. Azure Pipeline によってリポジトリが分析される。上記のサンプルリポジトリは、Maven パイプラインテンプレートが推奨される。<br>
+   [Save and run]を選択し、適宜 Commit message を入力する。[Commit directly to the master branch]を選択し、[Save and run]を選択する。
 
-# Legal Notices
-
-Microsoft and any contributors grant you a license to the Microsoft documentation and other content
-in this repository under the [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/legalcode),
-see the [LICENSE](LICENSE) file, and grant you a license to any code in the repository under the [MIT License](https://opensource.org/licenses/MIT), see the
-[LICENSE-CODE](LICENSE-CODE) file.
-
-Microsoft, Windows, Microsoft Azure and/or other Microsoft products and services referenced in the documentation
-may be either trademarks or registered trademarks of Microsoft in the United States and/or other countries.
-The licenses for this project do not grant you rights to use any Microsoft names, logos, or trademarks.
-Microsoft's general trademark guidelines can be found at http://go.microsoft.com/fwlink/?LinkID=254653.
-
-Privacy information can be found at https://privacy.microsoft.com/en-us/
-
-Microsoft and any contributors reserve all others rights, whether under their respective copyrights, patents,
-or trademarks, whether by implication, estoppel or otherwise.
+## Add a status badge to the repository
+1. Azure Pipelines で、[Pipeline]ページにアクセスし、パイプラインの一覧を表示する。前のセクションで作成したパイプラインを選択する。
+2. パイプラインのコンテキストメニューで、[Status badge]を選択する。
+3. サンプルマークダウンが表示されるので、コピーする。
