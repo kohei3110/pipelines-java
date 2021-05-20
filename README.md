@@ -2,6 +2,15 @@
 
 # Azure DevOps Tutorial
 
+## サービスプリンシパルとは
+ - 一言でいうと、別名実行アカウントのこと。（[参考](https://blog.nextscape.net/archives/Date/2016/07/azure-ad-serviceprincipal)）
+ ![alt text](./images/service-principal.png)
+ - アプリケーションを実行するためのアカウントがサービスプリンシパル。
+ - 各サービスプリンシパルに対して、「読み取り専用」「仮想マシン起動・停止のみ」といったロールを割り当てるイメージ。
+ - アプリケーション：サービスプリンシパル = 1：多
+   - つまり、割り当てたいロールごとにサービスプリンシパルを作成可能。 
+ - Azure Subscription 内部のリソースにアクセスする際に必要となる。
+
 ## Fork the following repository to your GitHub account
 https://github.com/MicrosoftDocs/pipelines-java
 
@@ -105,3 +114,51 @@ Azure portal からシークレットを作成可能。<br>
 
 ![alt text](./images/certificatoin-secret.png)
 <b>※値は一度しか表示されないので、忘れずにメモを取ること。</b>
+
+## サービスプリンシパルでログイン
+
+Azure にログインし、サービスプリンシパルを作成。
+
+1. Azure CLI
+
+```powershell
+> az login
+> az ad sp create-for-rbac -n "foo-bar-app" --role contributor
+{
+  "appId": "*********************",
+  "displayName": "foo-bar-app",
+  "name": "http://foo-bar-app",
+  "password": "**********************************",
+  "tenant": "******-******-****-*******-***************"
+}
+```
+<b>※値は一度しか出力されないので、忘れずにメモを取ること。</b>
+（参考：[Azure CLI - az ad sp](https://docs.microsoft.com/ja-jp/cli/azure/ad/sp?view=azure-cli-latest)）
+
+
+```powershell
+> az login --service-principal -u "your-application-id" --password "your-password" --tenant "your-tenant-id"
+```
+
+2. Python
+
+```python
+from azure.common.credentials import ServicePrincipalCredentials
+ 
+TENANT-ID = 'your-tenant-id'
+CLIENT = 'your-application-id'
+KEY = 'your-password'
+ 
+credentials = ServicePrincipalCredentials (
+    client-id = CLIENT,
+    secret = KEY,
+    tenant = TENANT-ID
+  )
+```
+（参考：[credentials Module](https://docs.microsoft.com/en-us/python/api/azure-common/azure.common.credentials?view=azure-python)）
+
+## Azure DevOps の認証にサービスプリンシパルを加える。
+
+[Project Settings] > [Service connections] > [New service connection] > [Azure Resource Manager] を選択し、サービスプリンシパルに関する情報を入力。
+
+![alt text](./images/service-connection-verification.png)
