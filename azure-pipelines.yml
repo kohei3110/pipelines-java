@@ -6,11 +6,18 @@
 trigger:
 - master
 
-pool:
-  # vmImage: ubuntu-latest
-  vmImage: vs2017-win2016
-  # vmImage: macos-latest
+strategy:
+  matrix:
+    linux:
+      imageName: "ubuntu-16.04"
+    mac:
+      imageName: "macos-latest"
+    windows:
+      imageName: "vs2017-win2016"
 
+pool:
+  vmImage: $(imageName)
+  
 steps:
 - task: Maven@3
   inputs:
