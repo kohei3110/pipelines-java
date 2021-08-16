@@ -2,15 +2,6 @@
 
 # Azure DevOps Tutorial
 
-## サービスプリンシパルとは
- - 一言でいうと、別名実行アカウントのこと。（[参考](https://blog.nextscape.net/archives/Date/2016/07/azure-ad-serviceprincipal)）
- ![alt text](./images/service-principal.png)
- - アプリケーションを実行するためのアカウントがサービスプリンシパル。
- - 各サービスプリンシパルに対して、「読み取り専用」「仮想マシン起動・停止のみ」といったロールを割り当てるイメージ。
- - アプリケーション：サービスプリンシパル = 1：多
-   - つまり、割り当てたいロールごとにサービスプリンシパルを作成可能。 
- - Azure Subscription 内部のリソースにアクセスする際に必要となる。
-
 ## Fork the following repository to your GitHub account
 https://github.com/MicrosoftDocs/pipelines-java
 
@@ -53,6 +44,15 @@ pool:
 ```
 
 各エージェントは、一度に1つのジョブしか実行できない。複数のジョブを並列実行するためには、複数のエージェントを構成する必要がある。
+
+## 【補足】サービスプリンシパルとは
+ - 一言でいうと、別名実行アカウントのこと。（[参考](https://blog.nextscape.net/archives/Date/2016/07/azure-ad-serviceprincipal)）
+ ![alt text](./images/service-principal.png)
+ - アプリケーションを実行するためのアカウントがサービスプリンシパル。
+ - 各サービスプリンシパルに対して、「読み取り専用」「仮想マシン起動・停止のみ」といったロールを割り当てるイメージ。
+ - アプリケーション：サービスプリンシパル = 1：多
+   - つまり、割り当てたいロールごとにサービスプリンシパルを作成可能。 
+ - Azure Subscription 内部のリソースにアクセスする際に必要となる。
 
 ## Use service principal to deploy the application
 セキュリティ上の理由から、自動化ツールにはユーザ ID でのログインを許可するのではなく、常にサービスプリンシパルを使用することを推奨する。（[参考](https://docs.microsoft.com/ja-jp/azure/active-directory/develop/howto-create-service-principal-portal)）
