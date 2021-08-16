@@ -1,4 +1,4 @@
-[![Build Status](https://dev.azure.com/koheisaito/Demo/_apis/build/status/kohei3110.pipelines-java?branchName=master)](https://dev.azure.com/koheisaito/Demo/_build/latest?definitionId=1&branchName=master)
+[![Build Status](https://dev.azure.com/koheisaito/pipelines-java/_apis/build/status/kohei3110.pipelines-java?branchName=master)](https://dev.azure.com/koheisaito/pipelines-java/_build/latest?definitionId=4&branchName=master)
 
 # Azure DevOps Tutorial
 
